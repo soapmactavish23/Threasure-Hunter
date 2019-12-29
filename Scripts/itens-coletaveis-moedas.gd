@@ -11,8 +11,15 @@ var sprites = [
 ]
 
 func _ready():
-	var n_item = rand_range(0,2)
-	$Sprite.set_texture(sprites[n_item])
+	#var n_item = rand_range(0,2)
+	$Sprite.set_texture(moeda_ouro)
 
 func _on_itenscoletaveismoedas_body_entered(body):
+	$moedas_som.play()
+	$particles.emitting = true
+	$queue_timer.start(1)
+	$Sprite.hide()
+	get_tree().call_group("moedas", "add_moedas") 
+
+func _on_queue_timer_timeout():
 	queue_free()

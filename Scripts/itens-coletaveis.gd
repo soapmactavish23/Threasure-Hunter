@@ -17,4 +17,11 @@ func _ready():
 	$Sprite.set_texture(sprites[n_item])
 
 func _on_itenscoletaveisfrutas_body_entered(body):
+	$particles.emitting = true
+	$queue_timer.start(1)
+	$Sprite.hide()
+	get_tree().call_group("vidas", "add_vidas")
+
+
+func _on_queue_timer_timeout():
 	queue_free()

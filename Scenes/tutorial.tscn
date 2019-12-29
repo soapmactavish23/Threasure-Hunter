@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://probs/bg_jungle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://probs/tilejungle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://probs/tiles/obgJungle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://probs/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Tileset/Jungle/Tiles/png/Tiles/17.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/sons ambiente/jungle.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/Tileset/Jungle/Tiles/png/Tiles/17.png" type="Texture" id=6]
+[ext_resource path="res://probs/fade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/UI/heart-ui.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/coin-ui.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/key-gold.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/pause-button.png" type="Texture" id=12]
+[ext_resource path="res://probs/damege/thorny-plant-down.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Game.gd\"
@@ -13,11 +21,18 @@ func _ready():
 	pass
 
 func _on_agua_body_entered(body):
-	morre()
-"
+	get_tree().call_group(\"player\",\"game_over\")"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 303.78, 42.4817 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
 
 [node name="tutorial" type="Node2D"]
 script = SubResource( 1 )
@@ -32,34 +47,144 @@ cell_size = Vector2( 15, 15 )
 tile_data = PoolIntArray( 1048597, 12, 0, 1704029, 0, 0, 1769558, 10, 0, 1835087, 6, 0, 1966085, 0, 0, 1966123, 8, 0, 2031628, 9, 0, 2097176, 6, 0, 2097186, 5, 0, 29425800, 8, 0 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 light_mask = 3
 position = Vector2( 23.8001, -88.8538 )
+
+[node name="audio_jungle" type="AudioStreamPlayer2D" parent="player"]
+position = Vector2( -103.52, 370.224 )
+scale = Vector2( 4.34955, 4.16667 )
+stream = ExtResource( 5 )
+autoplay = true
 
 [node name="agua" type="Area2D" parent="."]
 editor/display_folded = true
 
 [node name="17" type="Sprite" parent="agua"]
 position = Vector2( 1076.31, 591.295 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="18" type="Sprite" parent="agua"]
 position = Vector2( 1202.18, 591.295 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="19" type="Sprite" parent="agua"]
 position = Vector2( 1326.38, 591.295 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="20" type="Sprite" parent="agua"]
 position = Vector2( 1448.9, 591.295 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="21" type="Sprite" parent="agua"]
 position = Vector2( 1586.53, 591.295 )
 scale = Vector2( 1.26224, 1 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="shape" type="CollisionShape2D" parent="agua"]
 position = Vector2( 1345.64, 602.269 )
 shape = SubResource( 2 )
+
+[node name="fade" parent="." instance=ExtResource( 7 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
+script = ExtResource( 8 )
+
+[node name="contador_vidas" type="Node2D" parent="HUD"]
+editor/display_folded = true
+position = Vector2( 70, 50 )
+
+[node name="Sprite" type="Sprite" parent="HUD/contador_vidas"]
+scale = Vector2( 0.24, 0.21 )
+texture = ExtResource( 9 )
+
+[node name="txtVidasFundo" type="Label" parent="HUD/contador_vidas"]
+margin_left = 30.6479
+margin_top = -25.8471
+margin_right = 81.6479
+margin_bottom = 91.1529
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x0
+"
+
+[node name="txtVidas" type="Label" parent="HUD/contador_vidas"]
+margin_left = 27.1394
+margin_top = -28.4318
+margin_right = 78.1394
+margin_bottom = 88.5682
+custom_fonts/font = SubResource( 4 )
+text = "x0
+"
+
+[node name="contador_moedas" type="Node2D" parent="HUD"]
+editor/display_folded = true
+position = Vector2( 70, 100 )
+
+[node name="Sprite" type="Sprite" parent="HUD/contador_moedas"]
+scale = Vector2( 0.24, 0.21 )
+texture = ExtResource( 10 )
+
+[node name="txtMoedasFundo" type="Label" parent="HUD/contador_moedas"]
+margin_left = 30.6479
+margin_top = -25.8471
+margin_right = 81.6479
+margin_bottom = 91.1529
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x0
+"
+
+[node name="txtMoedas" type="Label" parent="HUD/contador_moedas"]
+margin_left = 27.1394
+margin_top = -28.4318
+margin_right = 78.1394
+margin_bottom = 88.5682
+custom_fonts/font = SubResource( 4 )
+text = "x0
+"
+
+[node name="contador_chaves_ouro" type="Node2D" parent="HUD"]
+editor/display_folded = true
+position = Vector2( 924.299, 50 )
+
+[node name="Sprite" type="Sprite" parent="HUD/contador_chaves_ouro"]
+scale = Vector2( 0.24, 0.21 )
+texture = ExtResource( 11 )
+
+[node name="txtChavesFundo" type="Label" parent="HUD/contador_chaves_ouro"]
+margin_left = 30.6479
+margin_top = -25.8471
+margin_right = 81.6479
+margin_bottom = 91.1529
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x0
+"
+
+[node name="txtChaves" type="Label" parent="HUD/contador_chaves_ouro"]
+margin_left = 27.1394
+margin_top = -28.4318
+margin_right = 78.1394
+margin_bottom = 88.5682
+custom_fonts/font = SubResource( 4 )
+text = "x0
+"
+
+[node name="btnPause" type="Button" parent="HUD"]
+editor/display_folded = true
+margin_left = 506.119
+margin_top = 10.8924
+margin_right = 564.119
+margin_bottom = 66.8924
+flat = true
+
+[node name="Sprite" type="Sprite" parent="HUD/btnPause"]
+position = Vector2( 29.1327, 29.2927 )
+scale = Vector2( 0.287261, 0.277038 )
+texture = ExtResource( 12 )
+
+[node name="thorny-plant-down" parent="." instance=ExtResource( 13 )]
+position = Vector2( 779.387, 471.928 )
 [connection signal="body_entered" from="agua" to="." method="_on_agua_body_entered"]

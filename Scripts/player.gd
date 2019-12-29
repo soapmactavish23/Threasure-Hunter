@@ -5,9 +5,11 @@ const GRAVITY = 20
 const SPEED = 200
 const JUMP_HEIGHT = -550
 var motion = Vector2()
+var vivo = true
+
 
 func _ready():
-	pass
+	add_to_group("player")
 
 func _physics_process(delta):
 	#acionar gravidade
@@ -19,26 +21,36 @@ func _physics_process(delta):
 	var jump = Input. is_action_just_pressed("ui_accept")
 	
 	#checar movimentos
-	if right :
+	if right and vivo:
 		motion.x = SPEED 
 		$anim.flip_h = false
 		if is_on_floor():
 			$anim.play("walk")
+			
 		
-	elif left :
+	elif left and vivo:
 		motion.x = -SPEED
 		$anim.flip_h = true
 		if is_on_floor():
 			$anim.play("walk")
-	elif is_on_floor():
+		
+	elif is_on_floor() and vivo:
 		motion.x = 0
 		$anim.play("idle")
 		
 		
-	if is_on_floor():
+	if is_on_floor() and vivo:
 		if jump :
 			motion.y = JUMP_HEIGHT
 			$anim.play("jump")
+			$pulo.play()
 			
 	#acionando fisica
 	motion = move_and_slide(motion,UP)
+	
+#Morte
+func game_over():
+	vivo = false
+	$anim.play("dead")
+	yield($anim, "animation_finished")
+	get_tree().reload_current_scene()
