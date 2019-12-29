@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Background/Jungle.png" type="Texture" id=1]
+
+[node name="bg_jungle" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Jungle" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 512.833, 299.491 )
+scale = Vector2( 1.02856, 0.807484 )
+texture = ExtResource( 1 )

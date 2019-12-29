@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = SubResource( 1 )
+
+[node name="txt" type="Label"]
+margin_left = 375.011
+margin_top = 112.456
+margin_right = 721.011
+margin_bottom = 169.456
+custom_fonts/font = SubResource( 2 )
+text = "Treasure Hunter"

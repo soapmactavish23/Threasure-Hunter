@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Introducao.gd" type="Script" id=1]
+[ext_resource path="res://probs/bg_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://probs/player_plane.tscn" type="PackedScene" id=3]
+[ext_resource path="res://probs/txt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/UI/bar-title.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+"
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = SubResource( 2 )
+
+[node name="Introducao" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg" parent="." instance=ExtResource( 2 )]
+position = Vector2( 544.891, 321.414 )
+
+[node name="player_plane" parent="." instance=ExtResource( 3 )]
+position = Vector2( 115.654, 242.916 )
+scale = Vector2( 0.29416, 0.282794 )
+
+[node name="txt_intro1" type="Node2D" parent="."]
+
+[node name="txt2" parent="txt_intro1" instance=ExtResource( 4 )]
+margin_left = -3.18533
+margin_top = 542.664
+margin_right = 1020.81
+margin_bottom = 6059.66
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tudo começou no mono-motor com Jhon dentro indo em busca de um tesouro perdido na pirâmide abandonada. Jhon estava vendo um bilhete deixado do seu pai deixando pistas sobre a pirâmide e seu grande tesouros na carta mostra a localização do tesouro perdido e então ele se dirigia até lá.
+Jhon desce na ilha e se dirige até a pirâmide, se espanta com o tamanho dela, e ele começa a ter recordações de seu pai lhe explicando tudo sobre o tesouro e segue em frente."
+autowrap = true
+script = SubResource( 1 )
+
+[node name="txt" parent="txt_intro1" instance=ExtResource( 4 )]
+margin_left = -3.18533
+margin_top = 537.364
+margin_right = 1020.81
+margin_bottom = 6054.36
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Tudo começou no mono-motor com Jhon dentro indo em busca de um tesouro perdido na pirâmide abandonada. Jhon estava vendo um bilhete deixado do seu pai deixando pistas sobre a pirâmide e seu grande tesouros na carta mostra a localização do tesouro perdido e então ele se dirigia até lá.
+Jhon desce na ilha e se dirige até a pirâmide, se espanta com o tamanho dela, e ele começa a ter recordações de seu pai lhe explicando tudo sobre o tesouro e segue em frente."
+autowrap = true
+script = SubResource( 1 )
+
+[node name="bar-title" type="Sprite" parent="."]
+position = Vector2( 935.146, 58.1526 )
+scale = Vector2( 0.371048, 0.380548 )
+texture = ExtResource( 5 )
+
+[node name="btnSkip" type="Button" parent="."]
+margin_left = 872.922
+margin_top = 23.327
+margin_right = 998.922
+margin_bottom = 86.327
+custom_fonts/font = SubResource( 3 )
+text = "Pular"
+flat = true
+[connection signal="pressed" from="btnSkip" to="." method="_on_btnSkip_pressed"]

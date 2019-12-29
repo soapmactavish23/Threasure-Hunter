@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://probs/bg_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/UI/bar-title.png" type="Texture" id=3]
+[ext_resource path="res://probs/txt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/UI/play-button.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/setting-button.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/exit-button.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/sound-button.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/music-button.png" type="Texture" id=9]
+[ext_resource path="res://probs/player_plane.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 37
+font_data = SubResource( 1 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg" parent="." instance=ExtResource( 2 )]
+
+[node name="bar-title" type="Sprite" parent="."]
+position = Vector2( 545.023, 145.974 )
+scale = Vector2( 1.07457, 0.739785 )
+texture = ExtResource( 3 )
+
+[node name="txt" parent="." instance=ExtResource( 4 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+
+[node name="btnjogar" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 469.0
+margin_top = 344.365
+margin_right = 591.0
+margin_bottom = 413.365
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = " JOGAR"
+flat = true
+
+[node name="play-button" type="Sprite" parent="btnjogar"]
+position = Vector2( 61.7317, 33.4121 )
+scale = Vector2( 0.55, 0.35 )
+texture = ExtResource( 5 )
+
+[node name="btnOpt" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 311.153
+margin_top = 339.0
+margin_right = 438.153
+margin_bottom = 414.0
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = "Opções"
+flat = true
+
+[node name="setting-button" type="Sprite" parent="btnOpt"]
+position = Vector2( 62.3443, 37.4801 )
+scale = Vector2( 0.56948, 0.350481 )
+texture = ExtResource( 6 )
+
+[node name="btnSair" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 628.147
+margin_top = 337.0
+margin_right = 747.147
+margin_bottom = 415.0
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = "Sair"
+flat = true
+
+[node name="exit-button" type="Sprite" parent="btnSair"]
+position = Vector2( 56.9966, 38.2444 )
+scale = Vector2( 0.552704, 0.340545 )
+texture = ExtResource( 7 )
+
+[node name="btnSound" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 902.273
+margin_top = 2.43701
+margin_right = 1021.27
+margin_bottom = 80.437
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = "Sair"
+flat = true
+
+[node name="exit-button" type="Sprite" parent="btnSound"]
+position = Vector2( 56.9966, 38.2444 )
+scale = Vector2( 0.552704, 0.340545 )
+texture = ExtResource( 8 )
+
+[node name="btnMusic" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 777.081
+margin_top = 2.43701
+margin_right = 896.081
+margin_bottom = 80.437
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = "Sair"
+flat = true
+
+[node name="exit-button" type="Sprite" parent="btnMusic"]
+position = Vector2( 56.9966, 38.2444 )
+scale = Vector2( 0.552704, 0.340545 )
+texture = ExtResource( 9 )
+
+[node name="player_plane" parent="." instance=ExtResource( 10 )]
+position = Vector2( 158.667, 227.145 )
+[connection signal="pressed" from="btnjogar" to="." method="_on_btnjogar_pressed"]
+[connection signal="pressed" from="btnOpt" to="." method="_on_btnOpt_pressed"]
+[connection signal="pressed" from="btnSair" to="." method="_on_btnSair_pressed"]
+[connection signal="pressed" from="btnSound" to="." method="_on_btnSair_pressed"]
+[connection signal="pressed" from="btnMusic" to="." method="_on_btnSair_pressed"]

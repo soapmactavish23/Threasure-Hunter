@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/comida-coletada.wav-5f5e8e2879bf3409786547107a81cc07.sample"
+
+[deps]
+
+source_file="res://Sounds/efeitos sonoros/comida-coletada.wav"
+dest_files=[ "res://.import/comida-coletada.wav-5f5e8e2879bf3409786547107a81cc07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Tileset/Templo/Itens/closed-silver-chest.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tileset/Templo/Itens/open-silver-chest.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "fechado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "aberto",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 39.7977, 35.1514 )
+
+[node name="bau-ouro" type="Area2D"]
+editor/display_folded = true
+
+[node name="anim" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "aberto"
+playing = true
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0.861603, 2.5847 )
+shape = SubResource( 3 )

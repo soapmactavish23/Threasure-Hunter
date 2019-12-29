@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tileset/Templo/Damage/low-thorns.png" type="Texture" id=1]
+
+[node name="low-thorns" type="Area2D"]
+editor/display_folded = true
+
+[node name="poly" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -30.197, -18.3792, -24.1298, 12.7151, 19.8574, 14.2319, 27.4413, -9.65761, 0.897392, -21.0336, -10.4786, -19.896 )
+
+[node name="low-thorns" type="Sprite" parent="."]
+position = Vector2( -2.1362, -3.96962 )
+texture = ExtResource( 1 )
