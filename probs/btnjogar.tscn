@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/UI/play-button.png" type="Texture" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 37
+font_data = SubResource( 1 )
+
+[node name="btnjogar" type="Button"]
+editor/display_folded = true
+margin_left = 480.36
+margin_top = 337.096
+margin_right = 602.36
+margin_bottom = 406.096
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = " JOGAR"
+flat = true
+
+[node name="play-button" type="Sprite" parent="."]
+position = Vector2( 61.7317, 33.4121 )
+scale = Vector2( 0.55, 0.35 )
+texture = ExtResource( 1 )

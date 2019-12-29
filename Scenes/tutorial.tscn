@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://probs/bg_jungle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://probs/tilejungle.tscn" type="PackedScene" id=2]
@@ -12,16 +12,49 @@
 [ext_resource path="res://Sprites/UI/coin-ui.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/UI/key-gold.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/UI/pause-button.png" type="Texture" id=12]
-[ext_resource path="res://probs/damege/thorny-plant-down.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=13]
+[ext_resource path="res://probs/click.tscn" type="PackedScene" id=14]
+[ext_resource path="res://probs/title.tscn" type="PackedScene" id=15]
+[ext_resource path="res://probs/btnSair.tscn" type="PackedScene" id=16]
+[ext_resource path="res://probs/btnMenu.tscn" type="PackedScene" id=17]
+[ext_resource path="res://probs/btnMusic.tscn" type="PackedScene" id=18]
+[ext_resource path="res://probs/btnjogar.tscn" type="PackedScene" id=19]
+[ext_resource path="res://probs/btnSound.tscn" type="PackedScene" id=20]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Game.gd\"
+
+var ligado = true
 
 func _ready():
 	pass
 
 func _on_agua_body_entered(body):
-	get_tree().call_group(\"player\",\"game_over\")"
+	get_tree().call_group(\"player\",\"game_over\")
+
+func _on_btnPause_pressed():
+	$Pause/ColorRect/click.play()
+	yield($Pause/ColorRect/click, \"finished\")
+	$Pause.pauseAtivo()
+
+func _on_btnSair_pressed():
+	sair()
+
+func _on_btnMenu_pressed():
+	$Pause/ColorRect/click.play()
+	yield($Pause/ColorRect/click, \"finished\")
+	mudaCena(scenes[0])
+
+func _on_btnSound_pressed():
+	if ligado == true:
+		ligado = false
+		$player/audio_jungle.stop()
+		$Pause/ColorRect/btnSound/anim.play(\"off\")
+	else:
+		ligado = true
+		$player/audio_jungle.play()
+		$Pause/ColorRect/btnSound/anim.play(\"on\")
+"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 303.78, 42.4817 )
@@ -185,6 +218,51 @@ position = Vector2( 29.1327, 29.2927 )
 scale = Vector2( 0.287261, 0.277038 )
 texture = ExtResource( 12 )
 
-[node name="thorny-plant-down" parent="." instance=ExtResource( 13 )]
-position = Vector2( 779.387, 471.928 )
+[node name="Pause" type="CanvasLayer" parent="."]
+editor/display_folded = true
+script = ExtResource( 13 )
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+editor/display_folded = true
+visible = false
+margin_right = 1038.0
+margin_bottom = 602.0
+color = Color( 0, 0, 0, 0.611765 )
+
+[node name="click" parent="Pause/ColorRect" instance=ExtResource( 14 )]
+
+[node name="title" parent="Pause/ColorRect" instance=ExtResource( 15 )]
+position = Vector2( 2.65393, 0.314117 )
+
+[node name="btnSair" parent="Pause/ColorRect" instance=ExtResource( 16 )]
+margin_left = 894.641
+margin_top = 16.7185
+margin_right = 1013.64
+margin_bottom = 94.7185
+
+[node name="btnMenu" parent="Pause/ColorRect" instance=ExtResource( 17 )]
+
+[node name="btnMusic" parent="Pause/ColorRect" instance=ExtResource( 18 )]
+margin_left = 340.994
+margin_top = 270.986
+margin_right = 454.994
+margin_bottom = 348.986
+
+[node name="btnjogar" parent="Pause/ColorRect" instance=ExtResource( 19 )]
+editor/display_folded = false
+margin_left = 482.481
+margin_top = 281.239
+margin_right = 604.481
+margin_bottom = 350.239
+
+[node name="btnSound" parent="Pause/ColorRect" instance=ExtResource( 20 )]
+margin_left = 642.146
+margin_top = 274.251
+margin_right = 761.143
+margin_bottom = 352.251
 [connection signal="body_entered" from="agua" to="." method="_on_agua_body_entered"]
+[connection signal="pressed" from="HUD/btnPause" to="." method="_on_btnPause_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/btnSair" to="." method="_on_btnSair_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/btnMenu" to="." method="_on_btnMenu_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/btnjogar" to="Pause" method="_on_btnjogar_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/btnSound" to="." method="_on_btnSound_pressed"]

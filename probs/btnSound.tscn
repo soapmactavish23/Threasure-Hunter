@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/UI/sound-button.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/sound-button-off.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 37
+font_data = SubResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[node name="btnSound" type="Button"]
+editor/display_folded = true
+margin_left = 623.691
+margin_top = 329.616
+margin_right = 742.688
+margin_bottom = 407.616
+rect_scale = Vector2( 1, 1.56 )
+custom_fonts/font = SubResource( 2 )
+text = "Sair"
+flat = true
+
+[node name="anim" type="AnimatedSprite" parent="."]
+position = Vector2( 58, 38 )
+scale = Vector2( 0.548363, 0.346514 )
+frames = SubResource( 3 )
+animation = "on"

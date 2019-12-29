@@ -2,7 +2,7 @@ extends CanvasLayer
 
 #moedas
 var moedas = 0
-var vidas = 4
+var vidas = 3
 var chaves = 0
 
 func _ready():

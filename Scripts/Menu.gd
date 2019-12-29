@@ -16,7 +16,7 @@ func _on_btnjogar_pressed():
 func _on_btnSair_pressed():
 	$click.play()
 	yield($click, "finished")
-	get_tree().quit()
+	sair()
 
 #Ligando e Desligando o Som
 func _on_btnSound_pressed():

@@ -1,7 +1,5 @@
 extends Node2D
 
-var moeda = 0
-
 #Vetor de Cenas
 var scenes = [
 	"res://Scenes/Menu.tscn", 
@@ -23,4 +21,6 @@ func mudaCena(cenas):
 func _on_alavanca_body_entered(body):
 	if body == $player:
 		$alavanca.colidiu_alavanca = true
-		
+
+func sair():
+	get_tree().quit()
