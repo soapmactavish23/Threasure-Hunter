@@ -6,6 +6,8 @@ func _physics_process(delta):
 	$txt_intro1.translate(Vector2(0, -50) * delta)
 
 func _on_btnSkip_pressed():
+	$click.play()
+	yield($click, "finished")
 	mudaCena(scenes[2])
 	
 

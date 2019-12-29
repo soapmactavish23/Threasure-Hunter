@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/golden-carrot-sample.wav-8ba06fc863d59440cd0ff0ee10f9d944.sample"
+
+[deps]
+
+source_file="res://Sounds/ativos de musicas/golden-carrot-sample.wav"
+dest_files=[ "res://.import/golden-carrot-sample.wav-8ba06fc863d59440cd0ff0ee10f9d944.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

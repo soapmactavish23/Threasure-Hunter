@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/TileSet.jpg-ed7dfddd0b45ce931bb70a29bf9a8cd5.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites/Tileset/Templo/Tile.png"
+source_file="res://Sprites/Tileset/TileSet.jpg"
+dest_files=[ "res://.import/TileSet.jpg-ed7dfddd0b45ce931bb70a29bf9a8cd5.stex" ]
+
 [params]
 
 compress/mode=0

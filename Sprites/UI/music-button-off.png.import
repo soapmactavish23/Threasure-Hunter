@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/music-button-off.png-58d1576596984545a37e86ffa4c35e71.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites/Tileset/Templo/Tileset.png"
+source_file="res://Sprites/UI/music-button-off.png"
+dest_files=[ "res://.import/music-button-off.png-58d1576596984545a37e86ffa4c35e71.stex" ]
+
 [params]
 
 compress/mode=0
