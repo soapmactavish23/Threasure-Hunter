@@ -1,25 +1,31 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://probs/bg_jungle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://probs/tilejungle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://probs/tiles/obgJungle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://probs/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/sons ambiente/jungle.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sprites/Tileset/Jungle/Tiles/png/Tiles/17.png" type="Texture" id=6]
-[ext_resource path="res://probs/fade.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/HUD.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/UI/heart-ui.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/coin-ui.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/UI/key-gold.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/UI/pause-button.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/Pause.gd" type="Script" id=13]
-[ext_resource path="res://probs/click.tscn" type="PackedScene" id=14]
-[ext_resource path="res://probs/title.tscn" type="PackedScene" id=15]
-[ext_resource path="res://probs/btnSair.tscn" type="PackedScene" id=16]
-[ext_resource path="res://probs/btnMenu.tscn" type="PackedScene" id=17]
-[ext_resource path="res://probs/btnMusic.tscn" type="PackedScene" id=18]
-[ext_resource path="res://probs/btnjogar.tscn" type="PackedScene" id=19]
-[ext_resource path="res://probs/btnSound.tscn" type="PackedScene" id=20]
+[ext_resource path="res://probs/portal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://probs/Itens/alavanca.tscn" type="PackedScene" id=3]
+[ext_resource path="res://probs/tilejungle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://probs/tiles/obgJungle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://probs/Itens/placa_info.tscn" type="PackedScene" id=6]
+[ext_resource path="res://probs/Itens/bau-ouro.tscn" type="PackedScene" id=7]
+[ext_resource path="res://probs/Itens/itens-coletaveis-moedas.tscn" type="PackedScene" id=8]
+[ext_resource path="res://probs/Itens/itens-coletaveis-chaves.tscn" type="PackedScene" id=9]
+[ext_resource path="res://probs/player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/sons ambiente/jungle.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Tileset/Jungle/Tiles/png/Tiles/17.png" type="Texture" id=12]
+[ext_resource path="res://probs/fade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=14]
+[ext_resource path="res://Sprites/UI/heart-ui.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/coin-ui.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/key-gold.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/pause-button.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=19]
+[ext_resource path="res://probs/click.tscn" type="PackedScene" id=20]
+[ext_resource path="res://probs/title.tscn" type="PackedScene" id=21]
+[ext_resource path="res://probs/btnSair.tscn" type="PackedScene" id=22]
+[ext_resource path="res://probs/btnMenu.tscn" type="PackedScene" id=23]
+[ext_resource path="res://probs/btnMusic.tscn" type="PackedScene" id=24]
+[ext_resource path="res://probs/btnjogar.tscn" type="PackedScene" id=25]
+[ext_resource path="res://probs/btnSound.tscn" type="PackedScene" id=26]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Game.gd\"
@@ -27,7 +33,9 @@ script/source = "extends \"res://Scripts/Game.gd\"
 var ligado = true
 
 func _ready():
-	pass
+	add_to_group(\"scenes\")
+	$portal.collision_layer = 0
+	$portal.collision_mask = 0
 
 func _on_agua_body_entered(body):
 	get_tree().call_group(\"player\",\"game_over\")
@@ -54,6 +62,61 @@ func _on_btnSound_pressed():
 		ligado = true
 		$player/audio_jungle.play()
 		$Pause/ColorRect/btnSound/anim.play(\"on\")
+
+#Placas
+func _on_placa_info_body_entered(body):
+	if body == $player:
+		$placa_info.informar(0)
+func _on_placa_info_body_exited(body):
+	if body == $player:
+		$placa_info.desinformar()
+func _on_placa_info2_body_entered(body):
+	if body == $player:
+		$placa_info2.informar(1)
+func _on_placa_info2_body_exited(body):
+	if body == $player:
+		$placa_info2.desinformar()
+func _on_placa_info3_body_entered(body):
+	if body == $player:
+		$placa_info3.informar(2)
+func _on_placa_info3_body_exited(body):
+	if body == $player:
+		$placa_info3.desinformar()
+		
+func _on_placa_info4_body_entered(body):
+	if body == $player:
+		$placa_info4.informar(2)
+		
+func _on_placa_info4_body_exited(body):
+	if body == $player:
+		$placa_info4.desinformar()
+
+#Bau
+func _on_bauouro_body_entered(body):
+	$\"bau-ouro\".colidiu = true
+	if $HUD.chaves > 0:
+		$\"bau-ouro\".tem_chave = true
+		
+func _on_bauouro_body_exited(body):
+	$\"bau-ouro\".colidiu = false
+
+func acao_bau():
+	$HUD.chaves -= 1
+	$HUD.update_hud_chaves()
+
+func _on_alavanca_body_entered(body):
+	if body == $player:
+		$alavanca.colidiu_alavanca = true
+
+func acao_alavanca():
+	$portal.show()
+	$portal.collision_layer = 1
+	$portal.collision_mask = 1
+	
+func _on_portal_body_entered(body):
+	mudaCena(scenes[3])
+
+
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -67,27 +130,110 @@ size = 48
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 37
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 37
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 37
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://Fonts/Doubledecker DEMO.otf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 37
+font_data = SubResource( 11 )
+
 [node name="tutorial" type="Node2D"]
 script = SubResource( 1 )
 
 [node name="bg_jungle" parent="." instance=ExtResource( 1 )]
 
-[node name="tileJungle" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 0, 15, 0, 65536, 15, 0, 131072, 15, 0, 196608, 15, 0, 262144, 15, 0, 327680, 15, 0, 393216, 15, 0, 458752, 15, 0, 458770, 12, 0, 458772, 13, 0, 458774, 14, 0, 524288, 1, 0, 524290, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524302, 2, 0, 524314, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0 )
+[node name="portal" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 3297.67, 351.017 )
 
-[node name="obgJungle" parent="." instance=ExtResource( 3 )]
+[node name="alavanca" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2447.77, 487.448 )
+
+[node name="tileJungle" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 0, 15, 0, 65536, 15, 0, 131072, 15, 0, 196608, 15, 0, 262144, 15, 0, 327680, 15, 0, 393216, 15, 0, 458752, 15, 0, 458770, 12, 0, 458772, 13, 0, 458774, 14, 0, 458794, 12, 0, 458796, 13, 0, 458797, 13, 0, 458798, 13, 0, 458799, 13, 0, 458800, 13, 0, 458801, 13, 0, 458803, 14, 0, 524288, 1, 0, 524290, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524302, 2, 0, 524314, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 524325, 1, 0, 524327, 2, 0 )
+
+[node name="obgJungle" parent="." instance=ExtResource( 5 )]
 cell_size = Vector2( 15, 15 )
 tile_data = PoolIntArray( 1048597, 12, 0, 1704029, 0, 0, 1769558, 10, 0, 1835087, 6, 0, 1966085, 0, 0, 1966123, 8, 0, 2031628, 9, 0, 2097176, 6, 0, 2097186, 5, 0, 29425800, 8, 0 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="placa_info" parent="." instance=ExtResource( 6 )]
+position = Vector2( 506.846, 485.278 )
+
+[node name="placa_info2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 982.454, 485.278 )
+
+[node name="placa_info3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2341.61, 483.867 )
+
+[node name="bau-ouro" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2067.32, 475.788 )
+
+[node name="placa_info4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1954.78, 478.868 )
+
+[node name="moedas" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="itens-coletaveis-moedas" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1032.99, 487.26 )
+
+[node name="itens-coletaveis-moedas2" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1076.05, 462.654 )
+
+[node name="itens-coletaveis-moedas3" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1119.75, 433.204 )
+
+[node name="itens-coletaveis-moedas4" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1556.75, 433.204 )
+
+[node name="itens-coletaveis-moedas5" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1603.3, 452.204 )
+
+[node name="itens-coletaveis-moedas6" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 1651.75, 478.803 )
+
+[node name="itens-coletaveis-moedas7" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 2606.83, 478.803 )
+
+[node name="itens-coletaveis-moedas8" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 2653.19, 438.622 )
+
+[node name="itens-coletaveis-moedas9" parent="moedas" instance=ExtResource( 8 )]
+position = Vector2( 2653.19, 438.622 )
+
+[node name="itens-coletaveis-chaves" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1778.14, 484.962 )
+
+[node name="player" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 light_mask = 3
-position = Vector2( 23.8001, -88.8538 )
+position = Vector2( 89.4886, -57.9452 )
 
 [node name="audio_jungle" type="AudioStreamPlayer2D" parent="player"]
 position = Vector2( -103.52, 370.224 )
 scale = Vector2( 4.34955, 4.16667 )
-stream = ExtResource( 5 )
+stream = ExtResource( 11 )
 autoplay = true
 
 [node name="agua" type="Area2D" parent="."]
@@ -95,34 +241,92 @@ editor/display_folded = true
 
 [node name="17" type="Sprite" parent="agua"]
 position = Vector2( 1076.31, 591.295 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="18" type="Sprite" parent="agua"]
 position = Vector2( 1202.18, 591.295 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="19" type="Sprite" parent="agua"]
 position = Vector2( 1326.38, 591.295 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="20" type="Sprite" parent="agua"]
 position = Vector2( 1448.9, 591.295 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="21" type="Sprite" parent="agua"]
 position = Vector2( 1586.53, 591.295 )
 scale = Vector2( 1.26224, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="shape" type="CollisionShape2D" parent="agua"]
 position = Vector2( 1345.64, 602.269 )
 shape = SubResource( 2 )
 
-[node name="fade" parent="." instance=ExtResource( 7 )]
+[node name="agua2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1592.84, 0 )
+
+[node name="17" type="Sprite" parent="agua2"]
+position = Vector2( 1076.31, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="18" type="Sprite" parent="agua2"]
+position = Vector2( 1202.18, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="19" type="Sprite" parent="agua2"]
+position = Vector2( 1326.38, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="20" type="Sprite" parent="agua2"]
+position = Vector2( 1448.9, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="21" type="Sprite" parent="agua2"]
+position = Vector2( 1586.53, 591.295 )
+scale = Vector2( 1.26224, 1 )
+texture = ExtResource( 12 )
+
+[node name="shape" type="CollisionShape2D" parent="agua2"]
+position = Vector2( 1345.64, 602.269 )
+shape = SubResource( 2 )
+
+[node name="agua3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2245.76, 0 )
+
+[node name="17" type="Sprite" parent="agua3"]
+position = Vector2( 1076.31, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="18" type="Sprite" parent="agua3"]
+position = Vector2( 1202.18, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="19" type="Sprite" parent="agua3"]
+position = Vector2( 1326.38, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="20" type="Sprite" parent="agua3"]
+position = Vector2( 1448.9, 591.295 )
+texture = ExtResource( 12 )
+
+[node name="21" type="Sprite" parent="agua3"]
+position = Vector2( 1586.53, 591.295 )
+scale = Vector2( 1.26224, 1 )
+texture = ExtResource( 12 )
+
+[node name="shape" type="CollisionShape2D" parent="agua3"]
+position = Vector2( 1345.64, 602.269 )
+shape = SubResource( 2 )
+
+[node name="fade" parent="." instance=ExtResource( 13 )]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
-script = ExtResource( 8 )
+script = ExtResource( 14 )
 
 [node name="contador_vidas" type="Node2D" parent="HUD"]
 editor/display_folded = true
@@ -130,23 +334,23 @@ position = Vector2( 70, 50 )
 
 [node name="Sprite" type="Sprite" parent="HUD/contador_vidas"]
 scale = Vector2( 0.24, 0.21 )
-texture = ExtResource( 9 )
+texture = ExtResource( 15 )
 
 [node name="txtVidasFundo" type="Label" parent="HUD/contador_vidas"]
-margin_left = 30.6479
-margin_top = -25.8471
-margin_right = 81.6479
-margin_bottom = 91.1529
+margin_left = 31.0
+margin_top = -26.0
+margin_right = 133.0
+margin_bottom = 91.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "x0
 "
 
 [node name="txtVidas" type="Label" parent="HUD/contador_vidas"]
-margin_left = 27.1394
-margin_top = -28.4318
-margin_right = 78.1394
-margin_bottom = 88.5682
+margin_left = 27.0
+margin_top = -28.0
+margin_right = 181.0
+margin_bottom = 89.0
 custom_fonts/font = SubResource( 4 )
 text = "x0
 "
@@ -157,26 +361,25 @@ position = Vector2( 70, 100 )
 
 [node name="Sprite" type="Sprite" parent="HUD/contador_moedas"]
 scale = Vector2( 0.24, 0.21 )
-texture = ExtResource( 10 )
+texture = ExtResource( 16 )
 
 [node name="txtMoedasFundo" type="Label" parent="HUD/contador_moedas"]
-margin_left = 30.6479
-margin_top = -25.8471
-margin_right = 81.6479
-margin_bottom = 91.1529
+margin_left = 31.0
+margin_top = -26.0
+margin_right = 154.0
+margin_bottom = 91.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "x0
 "
 
 [node name="txtMoedas" type="Label" parent="HUD/contador_moedas"]
-margin_left = 27.1394
-margin_top = -28.4318
-margin_right = 78.1394
-margin_bottom = 88.5682
+margin_left = 27.0
+margin_top = -28.0
+margin_right = 97.0
+margin_bottom = 89.0
 custom_fonts/font = SubResource( 4 )
-text = "x0
-"
+text = "x0"
 
 [node name="contador_chaves_ouro" type="Node2D" parent="HUD"]
 editor/display_folded = true
@@ -184,7 +387,7 @@ position = Vector2( 924.299, 50 )
 
 [node name="Sprite" type="Sprite" parent="HUD/contador_chaves_ouro"]
 scale = Vector2( 0.24, 0.21 )
-texture = ExtResource( 11 )
+texture = ExtResource( 17 )
 
 [node name="txtChavesFundo" type="Label" parent="HUD/contador_chaves_ouro"]
 margin_left = 30.6479
@@ -216,51 +419,67 @@ flat = true
 [node name="Sprite" type="Sprite" parent="HUD/btnPause"]
 position = Vector2( 29.1327, 29.2927 )
 scale = Vector2( 0.287261, 0.277038 )
-texture = ExtResource( 12 )
+texture = ExtResource( 18 )
 
 [node name="Pause" type="CanvasLayer" parent="."]
 editor/display_folded = true
-script = ExtResource( 13 )
+script = ExtResource( 19 )
 
 [node name="ColorRect" type="ColorRect" parent="Pause"]
-editor/display_folded = true
 visible = false
 margin_right = 1038.0
 margin_bottom = 602.0
 color = Color( 0, 0, 0, 0.611765 )
 
-[node name="click" parent="Pause/ColorRect" instance=ExtResource( 14 )]
+[node name="click" parent="Pause/ColorRect" instance=ExtResource( 20 )]
 
-[node name="title" parent="Pause/ColorRect" instance=ExtResource( 15 )]
+[node name="title" parent="Pause/ColorRect" instance=ExtResource( 21 )]
 position = Vector2( 2.65393, 0.314117 )
 
-[node name="btnSair" parent="Pause/ColorRect" instance=ExtResource( 16 )]
+[node name="btnSair" parent="Pause/ColorRect" instance=ExtResource( 22 )]
 margin_left = 894.641
 margin_top = 16.7185
 margin_right = 1013.64
 margin_bottom = 94.7185
+custom_fonts/font = SubResource( 6 )
 
-[node name="btnMenu" parent="Pause/ColorRect" instance=ExtResource( 17 )]
+[node name="btnMenu" parent="Pause/ColorRect" instance=ExtResource( 23 )]
 
-[node name="btnMusic" parent="Pause/ColorRect" instance=ExtResource( 18 )]
+[node name="btnMusic" parent="Pause/ColorRect" instance=ExtResource( 24 )]
 margin_left = 340.994
 margin_top = 270.986
 margin_right = 454.994
 margin_bottom = 348.986
+custom_fonts/font = SubResource( 8 )
 
-[node name="btnjogar" parent="Pause/ColorRect" instance=ExtResource( 19 )]
-editor/display_folded = false
+[node name="btnjogar" parent="Pause/ColorRect" instance=ExtResource( 25 )]
 margin_left = 482.481
 margin_top = 281.239
 margin_right = 604.481
 margin_bottom = 350.239
+custom_fonts/font = SubResource( 10 )
 
-[node name="btnSound" parent="Pause/ColorRect" instance=ExtResource( 20 )]
+[node name="btnSound" parent="Pause/ColorRect" instance=ExtResource( 26 )]
 margin_left = 642.146
 margin_top = 274.251
 margin_right = 761.143
 margin_bottom = 352.251
+custom_fonts/font = SubResource( 12 )
+[connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="alavanca" to="." method="_on_alavanca_body_entered"]
+[connection signal="body_entered" from="placa_info" to="." method="_on_placa_info_body_entered"]
+[connection signal="body_exited" from="placa_info" to="." method="_on_placa_info_body_exited"]
+[connection signal="body_entered" from="placa_info2" to="." method="_on_placa_info2_body_entered"]
+[connection signal="body_exited" from="placa_info2" to="." method="_on_placa_info2_body_exited"]
+[connection signal="body_entered" from="placa_info3" to="." method="_on_placa_info3_body_entered"]
+[connection signal="body_exited" from="placa_info3" to="." method="_on_placa_info3_body_exited"]
+[connection signal="body_entered" from="bau-ouro" to="." method="_on_bauouro_body_entered"]
+[connection signal="body_exited" from="bau-ouro" to="." method="_on_bauouro_body_exited"]
+[connection signal="body_entered" from="placa_info4" to="." method="_on_placa_info4_body_entered"]
+[connection signal="body_exited" from="placa_info4" to="." method="_on_placa_info4_body_exited"]
 [connection signal="body_entered" from="agua" to="." method="_on_agua_body_entered"]
+[connection signal="body_entered" from="agua2" to="." method="_on_agua_body_entered"]
+[connection signal="body_entered" from="agua3" to="." method="_on_agua_body_entered"]
 [connection signal="pressed" from="HUD/btnPause" to="." method="_on_btnPause_pressed"]
 [connection signal="pressed" from="Pause/ColorRect/btnSair" to="." method="_on_btnSair_pressed"]
 [connection signal="pressed" from="Pause/ColorRect/btnMenu" to="." method="_on_btnMenu_pressed"]

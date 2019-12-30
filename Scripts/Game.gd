@@ -4,7 +4,8 @@ extends Node2D
 var scenes = [
 	"res://Scenes/Menu.tscn", 
 	"res://Scenes/Introducao.tscn",
-	"res://Scenes/tutorial.tscn"
+	"res://Scenes/tutorial.tscn",
+	"res://Scenes/Fase1.tscn"
 	]
 
 func _ready():
@@ -17,10 +18,6 @@ func _process(delta):
 func mudaCena(cenas):
 	get_tree().change_scene(cenas)
 
-#Ativar Alavanca
-func _on_alavanca_body_entered(body):
-	if body == $player:
-		$alavanca.colidiu_alavanca = true
 
 func sair():
 	get_tree().quit()

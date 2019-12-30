@@ -10,12 +10,17 @@ func _ready():
 	add_to_group("vidas")
 	add_to_group("chaves")
 	update_hud_vidas()
+	update_hud_moedas()
 
 func _process(delta):
 	if vidas >= 3:
 		vidas = 3
 	elif vidas <= 0:
+		vidas = 0
 		get_tree().call_group("player","game_over")
+	
+	if chaves <= 0:
+		chaves = 0
 	
 #Adcionar Vidas
 func add_vidas():

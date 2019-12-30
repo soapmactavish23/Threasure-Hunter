@@ -5,3 +5,7 @@ var colidiu_alavanca = false
 func _process(delta):
 	if Input.is_action_just_pressed("action") and colidiu_alavanca:
 		$anim.play("default")
+		acionar()
+		
+func acionar():
+	get_tree().call_group("scenes","acao_alavanca")
