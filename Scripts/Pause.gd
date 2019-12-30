@@ -5,6 +5,7 @@ func _ready():
 
 func pauseAtivo():
 	$ColorRect.show()
+	get_tree().call_group("scenes","jogo_pausado")
 
 func pauseDesativado():
 	$ColorRect.hide()

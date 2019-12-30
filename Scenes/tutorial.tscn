@@ -115,8 +115,6 @@ func acao_alavanca():
 	
 func _on_portal_body_entered(body):
 	mudaCena(scenes[3])
-
-
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -199,19 +197,19 @@ editor/display_folded = true
 position = Vector2( 1032.99, 487.26 )
 
 [node name="itens-coletaveis-moedas2" parent="moedas" instance=ExtResource( 8 )]
-position = Vector2( 1076.05, 462.654 )
+position = Vector2( 1067.7, 424.24 )
 
 [node name="itens-coletaveis-moedas3" parent="moedas" instance=ExtResource( 8 )]
-position = Vector2( 1119.75, 433.204 )
+position = Vector2( 1134.78, 403.141 )
 
 [node name="itens-coletaveis-moedas4" parent="moedas" instance=ExtResource( 8 )]
-position = Vector2( 1556.75, 433.204 )
+position = Vector2( 1541.72, 403.141 )
 
 [node name="itens-coletaveis-moedas5" parent="moedas" instance=ExtResource( 8 )]
-position = Vector2( 1603.3, 452.204 )
+position = Vector2( 1628.35, 420.471 )
 
 [node name="itens-coletaveis-moedas6" parent="moedas" instance=ExtResource( 8 )]
-position = Vector2( 1651.75, 478.803 )
+position = Vector2( 1685.15, 473.792 )
 
 [node name="itens-coletaveis-moedas7" parent="moedas" instance=ExtResource( 8 )]
 position = Vector2( 2606.83, 478.803 )
@@ -467,6 +465,7 @@ margin_bottom = 352.251
 custom_fonts/font = SubResource( 12 )
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_entered" from="alavanca" to="." method="_on_alavanca_body_entered"]
+[connection signal="body_exited" from="alavanca" to="alavanca" method="_on_alavanca_body_exited"]
 [connection signal="body_entered" from="placa_info" to="." method="_on_placa_info_body_entered"]
 [connection signal="body_exited" from="placa_info" to="." method="_on_placa_info_body_exited"]
 [connection signal="body_entered" from="placa_info2" to="." method="_on_placa_info2_body_entered"]

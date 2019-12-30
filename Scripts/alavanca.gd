@@ -9,3 +9,6 @@ func _process(delta):
 		
 func acionar():
 	get_tree().call_group("scenes","acao_alavanca")
+
+func _on_alavanca_body_exited(body):
+	colidiu_alavanca = false

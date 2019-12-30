@@ -6,7 +6,6 @@
 radius = 90.8282
 
 [node name="portal" type="Area2D"]
-editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1.37659, 1.64391 )
