@@ -44,7 +44,7 @@ func _on_btnPause_pressed():
 	$Pause/ColorRect/click.play()
 	yield($Pause/ColorRect/click, \"finished\")
 	$Pause.pauseAtivo()
-
+	
 func _on_btnSair_pressed():
 	sair()
 
@@ -114,8 +114,7 @@ func acao_alavanca():
 	$portal.collision_mask = 1
 	
 func _on_portal_body_entered(body):
-	mudaCena(scenes[3])
-"
+	mudaCena(scenes[3])"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 303.78, 42.4817 )
@@ -430,11 +429,14 @@ margin_bottom = 602.0
 color = Color( 0, 0, 0, 0.611765 )
 
 [node name="click" parent="Pause/ColorRect" instance=ExtResource( 20 )]
+pause_mode = 2
 
 [node name="title" parent="Pause/ColorRect" instance=ExtResource( 21 )]
+pause_mode = 2
 position = Vector2( 2.65393, 0.314117 )
 
 [node name="btnSair" parent="Pause/ColorRect" instance=ExtResource( 22 )]
+pause_mode = 2
 margin_left = 894.641
 margin_top = 16.7185
 margin_right = 1013.64
@@ -442,8 +444,10 @@ margin_bottom = 94.7185
 custom_fonts/font = SubResource( 6 )
 
 [node name="btnMenu" parent="Pause/ColorRect" instance=ExtResource( 23 )]
+pause_mode = 2
 
 [node name="btnMusic" parent="Pause/ColorRect" instance=ExtResource( 24 )]
+pause_mode = 2
 margin_left = 340.994
 margin_top = 270.986
 margin_right = 454.994
@@ -451,6 +455,7 @@ margin_bottom = 348.986
 custom_fonts/font = SubResource( 8 )
 
 [node name="btnjogar" parent="Pause/ColorRect" instance=ExtResource( 25 )]
+pause_mode = 2
 margin_left = 482.481
 margin_top = 281.239
 margin_right = 604.481
@@ -458,6 +463,7 @@ margin_bottom = 350.239
 custom_fonts/font = SubResource( 10 )
 
 [node name="btnSound" parent="Pause/ColorRect" instance=ExtResource( 26 )]
+pause_mode = 2
 margin_left = 642.146
 margin_top = 274.251
 margin_right = 761.143

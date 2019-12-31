@@ -1,6 +1,7 @@
 extends Area2D
 
 var moeda = preload("res://probs/Itens/itens-coletaveis-moedas.tscn")
+var frutas = preload("res://probs/Itens/itens-coletaveis-frutas.tscn")
 var colidiu = false
 var tem_chave = false
 func _ready():

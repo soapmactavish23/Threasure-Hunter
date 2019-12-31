@@ -13,9 +13,7 @@ func _ready():
 	update_hud_moedas()
 
 func _process(delta):
-	if vidas >= 3:
-		vidas = 3
-	elif vidas <= 0:
+	if vidas <= 0:
 		vidas = 0
 		get_tree().call_group("player","game_over")
 	
