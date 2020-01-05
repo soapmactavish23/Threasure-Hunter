@@ -11,7 +11,7 @@ func _on_itenscoletaveischaves_body_entered(body):
 	$particles.emitting = true
 	$queue_timer.start(1)
 	$Sprite.hide()
-	get_tree().call_group("chaves", "add_chaves")
+	get_tree().call_group("hud", "add_chaves")
 
 func _on_queue_timer_timeout():
 	queue_free()

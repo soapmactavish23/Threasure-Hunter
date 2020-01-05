@@ -5,7 +5,6 @@ var som_ligado = true
 func _ready():
 	pass
 
-
 #Jogar
 func _on_btnjogar_pressed():
 	$click.play()

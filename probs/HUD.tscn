@@ -134,6 +134,7 @@ text = "x0
 "
 
 [node name="contador_bau" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 922.242, 49.6774 )
 
 [node name="Sprite" type="Sprite" parent="contador_bau"]

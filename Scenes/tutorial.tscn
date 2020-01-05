@@ -27,52 +27,7 @@ func _ready():
 func _on_agua_body_entered(body):
 	get_tree().call_group(\"player\",\"game_over\")
 
-#Placas
-func _on_placa_info_body_entered(body):
-	if body == $player:
-		$placa_info.informar(0)
-func _on_placa_info_body_exited(body):
-	if body == $player:
-		$placa_info.desinformar()
-func _on_placa_info2_body_entered(body):
-	if body == $player:
-		$placa_info2.informar(1)
-func _on_placa_info2_body_exited(body):
-	if body == $player:
-		$placa_info2.desinformar()
-func _on_placa_info3_body_entered(body):
-	if body == $player:
-		$placa_info3.informar(2)
-func _on_placa_info3_body_exited(body):
-	if body == $player:
-		$placa_info3.desinformar()
-		
-func _on_placa_info4_body_entered(body):
-	if body == $player:
-		$placa_info4.informar(2)
-		
-func _on_placa_info4_body_exited(body):
-	if body == $player:
-		$placa_info4.desinformar()
-
-#Bau
-func _on_bauouro_body_entered(body):
-	$\"bau-ouro\".colidiu = true
-	if $HUD.chaves > 0:
-		$\"bau-ouro\".tem_chave = true
-		
-func _on_bauouro_body_exited(body):
-	$\"bau-ouro\".colidiu = false
-
-func acao_bau():
-	$HUD.chaves -= 1
-	$HUD.update_hud_chaves()
-	$HUD.add_baus()
-
-func _on_alavanca_body_entered(body):
-	if body == $player:
-		$alavanca.colidiu_alavanca = true
-
+#Alvanca
 func acao_alavanca():
 	$portal.show()
 	$portal/anim.play(\"aberto\")
@@ -104,20 +59,26 @@ tile_data = PoolIntArray( 0, 15, 0, 65536, 15, 0, 131072, 15, 0, 196608, 15, 0, 
 cell_size = Vector2( 15, 15 )
 tile_data = PoolIntArray( 1048597, 12, 0, 1704029, 0, 0, 1769558, 10, 0, 1835087, 6, 0, 1966085, 0, 0, 1966123, 8, 0, 2031628, 9, 0, 2097176, 6, 0, 2097186, 5, 0, 29425800, 8, 0 )
 
-[node name="placa_info" parent="." instance=ExtResource( 6 )]
+[node name="Placas" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="placa_info" parent="Placas" instance=ExtResource( 6 )]
 position = Vector2( 506.846, 485.278 )
 
-[node name="placa_info2" parent="." instance=ExtResource( 6 )]
+[node name="placa_info2" parent="Placas" instance=ExtResource( 6 )]
 position = Vector2( 982.454, 485.278 )
+msg = 1
 
-[node name="placa_info3" parent="." instance=ExtResource( 6 )]
+[node name="placa_info3" parent="Placas" instance=ExtResource( 6 )]
 position = Vector2( 2341.61, 483.867 )
+msg = 2
+
+[node name="placa_info4" parent="Placas" instance=ExtResource( 6 )]
+position = Vector2( 1954.78, 478.868 )
+msg = 2
 
 [node name="bau-ouro" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2067.32, 475.788 )
-
-[node name="placa_info4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1954.78, 478.868 )
 
 [node name="moedas" type="Node2D" parent="."]
 editor/display_folded = true
@@ -253,18 +214,7 @@ shape = SubResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 14 )]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
-[connection signal="body_entered" from="alavanca" to="." method="_on_alavanca_body_entered"]
 [connection signal="body_exited" from="alavanca" to="alavanca" method="_on_alavanca_body_exited"]
-[connection signal="body_entered" from="placa_info" to="." method="_on_placa_info_body_entered"]
-[connection signal="body_exited" from="placa_info" to="." method="_on_placa_info_body_exited"]
-[connection signal="body_entered" from="placa_info2" to="." method="_on_placa_info2_body_entered"]
-[connection signal="body_exited" from="placa_info2" to="." method="_on_placa_info2_body_exited"]
-[connection signal="body_entered" from="placa_info3" to="." method="_on_placa_info3_body_entered"]
-[connection signal="body_exited" from="placa_info3" to="." method="_on_placa_info3_body_exited"]
-[connection signal="body_entered" from="bau-ouro" to="." method="_on_bauouro_body_entered"]
-[connection signal="body_exited" from="bau-ouro" to="." method="_on_bauouro_body_exited"]
-[connection signal="body_entered" from="placa_info4" to="." method="_on_placa_info4_body_entered"]
-[connection signal="body_exited" from="placa_info4" to="." method="_on_placa_info4_body_exited"]
 [connection signal="body_entered" from="agua" to="." method="_on_agua_body_entered"]
 [connection signal="body_entered" from="agua2" to="." method="_on_agua_body_entered"]
 [connection signal="body_entered" from="agua3" to="." method="_on_agua_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Fase1.gd" type="Script" id=1]
 [ext_resource path="res://probs/bg_templo.tscn" type="PackedScene" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://probs/Itens/itens-coletaveis-chaves.tscn" type="PackedScene" id=8]
 [ext_resource path="res://probs/Itens/alavanca.tscn" type="PackedScene" id=9]
 [ext_resource path="res://probs/damege/low-thorns.tscn" type="PackedScene" id=10]
-[ext_resource path="res://probs/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://probs/Itens/placa_info.tscn" type="PackedScene" id=11]
+[ext_resource path="res://probs/player.tscn" type="PackedScene" id=12]
 
 [node name="Fase1" type="Node2D"]
 script = ExtResource( 1 )
@@ -35,16 +36,10 @@ position = Vector2( 568.304, 91.4201 )
 position = Vector2( 746.063, 35.7695 )
 
 [node name="itens-coletaveis-moedas5" parent="Moedas" instance=ExtResource( 6 )]
-position = Vector2( 1053.36, -32.2652 )
-
-[node name="itens-coletaveis-moedas6" parent="Moedas" instance=ExtResource( 6 )]
-position = Vector2( 1005.9, -32.2652 )
-
-[node name="itens-coletaveis-moedas7" parent="Moedas" instance=ExtResource( 6 )]
-position = Vector2( 900.41, -32.2652 )
+position = Vector2( 1037.62, -32.2652 )
 
 [node name="itens-coletaveis-moedas8" parent="Moedas" instance=ExtResource( 6 )]
-position = Vector2( 856.458, -32.2652 )
+position = Vector2( 880.064, -33.2652 )
 
 [node name="itens-coletaveis-moedas10" parent="Moedas" instance=ExtResource( 6 )]
 position = Vector2( 1167.64, 87.2846 )
@@ -140,7 +135,7 @@ position = Vector2( 375.221, 508.773 )
 position = Vector2( 1802.24, 326.624 )
 
 [node name="bau-ouro3" parent="Baus" instance=ExtResource( 7 )]
-position = Vector2( 119.669, -333.825 )
+position = Vector2( 957.676, -34.0964 )
 
 [node name="Chaves" type="Node2D" parent="."]
 editor/display_folded = true
@@ -158,15 +153,22 @@ position = Vector2( 1703.41, -37.3946 )
 editor/display_folded = true
 
 [node name="alavanca" parent="Alavancas" instance=ExtResource( 9 )]
-position = Vector2( 1422.33, 514.283 )
-
-[node name="alavanca2" parent="Alavancas" instance=ExtResource( 9 )]
-position = Vector2( 959.372, -24.5746 )
+position = Vector2( 121.523, -327.609 )
 
 [node name="Armadilhas" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="low-thorns" parent="Armadilhas" instance=ExtResource( 10 )]
 position = Vector2( 88.2947, 226.067 )
+
+[node name="low-thorns9" parent="Armadilhas" instance=ExtResource( 10 )]
+position = Vector2( 1512.12, -71.152 )
+
+[node name="low-thorns10" parent="Armadilhas" instance=ExtResource( 10 )]
+position = Vector2( 1558.21, -71.152 )
+
+[node name="low-thorns11" parent="Armadilhas" instance=ExtResource( 10 )]
+position = Vector2( 1608.81, -71.152 )
 
 [node name="low-thorns2" parent="Armadilhas" instance=ExtResource( 10 )]
 position = Vector2( 133.341, 226.067 )
@@ -189,6 +191,11 @@ position = Vector2( 358.57, 226.067 )
 [node name="low-thorns8" parent="Armadilhas" instance=ExtResource( 10 )]
 position = Vector2( 402.163, 226.067 )
 
-[node name="player" parent="." instance=ExtResource( 11 )]
+[node name="placa_info" parent="." instance=ExtResource( 11 )]
+position = Vector2( 918.714, 513.978 )
+msg = 3
+
+[node name="player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 433.608, 396.363 )
+[connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_exited" from="Alavancas/alavanca" to="Alavancas/alavanca" method="_on_alavanca_body_exited"]

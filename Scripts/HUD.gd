@@ -8,12 +8,9 @@ var baus = 0
 var ligado = true
 
 func _ready():
-	add_to_group("moedas")
-	add_to_group("vidas")
-	add_to_group("chaves")
+	add_to_group("hud")
 	pauseDesativado()
-	update_hud_vidas()
-	update_hud_moedas()
+	update_hud(1)
 
 func _process(delta):
 	if vidas <= 0:
@@ -22,6 +19,11 @@ func _process(delta):
 	
 	if chaves <= 0:
 		chaves = 0
+	
+	if chaves > 0:
+		get_tree().call_group("bau", "dar_chave")
+	else:
+		get_tree().call_group("bau", "tirar_chave")
 	
 #Quando pressionar o Botão de Pauser
 func _on_btnPause_pressed():
@@ -66,52 +68,52 @@ func _on_btnjogar_pressed():
 	$ColorRect/click.play()
 	pauseDesativado()
 
+#Atualizar
+func update_hud(item):
+	var vidas_hud = "x"+str(vidas)
+	var moedas_hud = "x"+str(moedas)
+	var chaves_hud = "x"+str(chaves)
+	var baus_hud = "x"+str(baus)
+	if item == 1:
+		$contador_vidas/txtVidas.text = vidas_hud
+		$contador_vidas/txtVidasFundo.text = vidas_hud
+	elif item == 2:
+		$contador_moedas/txtMoedas.text = moedas_hud
+		$contador_moedas/txtMoedasFundo.text = moedas_hud
+	elif item == 3:
+		$contador_chaves_ouro/txtChaves.text = chaves_hud
+		$contador_chaves_ouro/txtChavesFundo.text = chaves_hud
+	elif item == 4:
+		$contador_bau/txtBaus.text = baus_hud
+		$contador_bau/txtBausFundo.text = baus_hud
+
 #Adcionar Vidas
 func add_vidas():
 	vidas += 1
-	update_hud_vidas()
-
+	update_hud(1)
+	
 #Deletar Vidas
 func del_vidas():
 	vidas -= 1
-	update_hud_vidas()
+	update_hud(2)
 
-#Mostrar Vidas
-func update_hud_vidas():
-	var vidas_hud = "x"+str(vidas)
-	$contador_vidas/txtVidas.text = vidas_hud
-	$contador_vidas/txtVidasFundo.text = vidas_hud
-	
 #Adicionar moedas
 func add_moedas():
 	moedas += 1
-	update_hud_moedas()
-	
-func update_hud_moedas():
-	var moedas_hud = "x"+str(moedas)
-	$contador_moedas/txtMoedas.text = moedas_hud
-	$contador_moedas/txtMoedasFundo.text = moedas_hud
-	
+	update_hud(2)
+
+#Deletar Chaves
+func del_chaves():
+	chaves -= 1
+	update_hud(3)
+	add_baus()
+
 #Adcionar Chaves
 func add_chaves():
 	chaves += 1
-	update_hud_chaves()
-	
-func update_hud_chaves():
-	var chaves_hud = "x"+str(chaves)
-	$contador_chaves_ouro/txtChaves.text = chaves_hud
-	$contador_chaves_ouro/txtChavesFundo.text = chaves_hud
-	
+	update_hud(3)
+
 #Adcionar Baus
 func add_baus():
 	baus += 1
-	update_hud_baus()
-
-func update_hud_baus():
-	var baus_hud = "x"+str(baus)
-	$contador_bau/txtBaus.text = baus_hud
-	$contador_bau/txtBausFundo.text = baus_hud
-	
-	
-
-
+	update_hud(4)

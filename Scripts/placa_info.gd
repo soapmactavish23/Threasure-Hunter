@@ -1,12 +1,12 @@
 extends Area2D
 
 var colidiu = false
-
+export var msg = 0
 var mensagem = [
 		"Precione as Setas para andar", 
 		"Precione espaço para pular",
 		"Precione 'E' para interagir",
-		
+		"Para passar de fase abra todos os Baús"
 	]
 
 func _ready():
@@ -22,7 +22,12 @@ func informar(num):
 		$ColorRect/txtInfo.text = mensagem[2]
 	elif num == 3:
 		$ColorRect/txtInfo.text = mensagem[3]
-	elif num == 4:
-		$ColorRect/txtInfo.text = mensagem[4]
+	
 func desinformar():
 	$ColorRect.hide()
+
+func _on_placa_info_body_entered(body):
+	informar(msg)
+
+func _on_placa_info_body_exited(body):
+	desinformar()

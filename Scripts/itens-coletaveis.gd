@@ -20,8 +20,7 @@ func _on_itenscoletaveisfrutas_body_entered(body):
 	$particles.emitting = true
 	$queue_timer.start(1)
 	$Sprite.hide()
-	get_tree().call_group("vidas", "add_vidas")
-
+	get_tree().call_group("hud", "add_vidas")
 
 func _on_queue_timer_timeout():
 	queue_free()
