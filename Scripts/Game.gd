@@ -5,7 +5,9 @@ var scenes = [
 	"res://Scenes/Menu.tscn", 
 	"res://Scenes/Introducao.tscn",
 	"res://Scenes/tutorial.tscn",
-	"res://Scenes/Fase1.tscn"
+	"res://Scenes/Fase1.tscn",
+	"res://Scenes/Fase2.tscn",
+	"res://Scenes/Carregando.tscn"
 	]
 
 func _ready():

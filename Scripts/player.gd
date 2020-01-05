@@ -55,9 +55,17 @@ func game_over():
 	yield($anim, "animation_finished")
 	get_tree().reload_current_scene()
 	
-func parar_musica():
+func parar_som():
 	$audio_jungle.stop()
 
-func tocar_musica():
+func tocar_som():
 	$audio_jungle.play()
+	
+func parar_musica():
+	$audio.stop()
+	
+func tocar_musica():
+	$audio.play()
 
+func _on_audio_finished():
+	$audio.play()

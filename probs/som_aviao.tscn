@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sounds/sons ambiente/sky.wav" type="AudioStream" id=1]
+
+[node name="som_aviao" type="AudioStreamPlayer2D"]
+position = Vector2( 158.667, 227.145 )
+scale = Vector2( 0.44719, 0.48 )
+stream = ExtResource( 1 )
+autoplay = true

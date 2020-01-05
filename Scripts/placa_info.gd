@@ -3,9 +3,9 @@ extends Area2D
 var colidiu = false
 export var msg = 0
 var mensagem = [
-		"Precione as Setas para andar", 
-		"Precione espaço para pular",
-		"Precione 'E' para interagir",
+		"Pressione as Setas para andar", 
+		"Pressione espaço para pular",
+		"Pressione 'E' para interagir",
 		"Para passar de fase abra todos os Baús"
 	]
 

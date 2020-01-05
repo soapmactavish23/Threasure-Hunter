@@ -1,14 +1,19 @@
 extends CanvasLayer
 
 #Variáveis
-var moedas = 0
-var vidas = 3
-var chaves = 0
-var baus = 0
-var ligado = true
+var moedas 
+var vidas 
+var chaves 
+var baus 
+var musica_ligada = true
+var som_ligado = true
 
 func _ready():
 	add_to_group("hud")
+	moedas = 0
+	vidas = 3
+	baus = 0
+	chaves = 0
 	pauseDesativado()
 	update_hud(1)
 
@@ -54,19 +59,33 @@ func _on_btnMenu_pressed():
 	
 #Quando pressionar o Botão de Som
 func _on_btnSound_pressed():
-	if ligado == true:
-		ligado = false
-		get_tree().call_group("player", "parar_musica")
+	if musica_ligada == true:
+		musica_ligada = false
+		get_tree().call_group("player", "parar_som")
 		$ColorRect/btnSound/anim.play("off")
 	else:
-		ligado = true
-		get_tree().call_group("player", "tocar_musica")
+		musica_ligada = true
+		get_tree().call_group("player", "tocar_som")
 		$ColorRect/btnSound/anim.play("on")
+
+#Quando Precionar o botão de música
+func _on_btnMusic_pressed():
+	if som_ligado == true:
+		som_ligado = false
+		get_tree().call_group("player", "parar_musica")
+		$ColorRect/btnMusic/anim.play("off")
+	else:
+		som_ligado = true
+		get_tree().call_group("player", "tocar_musica")
+		$ColorRect/btnMusic/anim.play("on")
 
 #Quando pressionar o Botão de Jogar
 func _on_btnjogar_pressed():
 	$ColorRect/click.play()
 	pauseDesativado()
+
+func _on_btnReset_pressed():
+	get_tree().reload_current_scene()
 
 #Atualizar
 func update_hud(item):
@@ -95,7 +114,7 @@ func add_vidas():
 #Deletar Vidas
 func del_vidas():
 	vidas -= 1
-	update_hud(2)
+	update_hud(1)
 
 #Adicionar moedas
 func add_moedas():

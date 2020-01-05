@@ -8,6 +8,8 @@ func _ready():
 
 func _on_itenscoletaveischaves_body_entered(body):
 	$moedas_som.play()
+	collision_mask = 0
+	collision_layer = 0
 	$particles.emitting = true
 	$queue_timer.start(1)
 	$Sprite.hide()

@@ -1,3 +1,39 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Fase2.gd" type="Script" id=1]
+[ext_resource path="res://probs/bg_templo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://probs/title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://probs/txt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/ativos de musicas/Victory.ogg" type="AudioStream" id=5]
 
 [node name="Fase2" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg_templo" parent="." instance=ExtResource( 2 )]
+
+[node name="title" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2.79749, 0 )
+
+[node name="txt2" parent="." instance=ExtResource( 4 )]
+margin_left = 457.256
+margin_top = 343.185
+margin_right = 803.256
+margin_bottom = 400.185
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Continua..."
+
+[node name="txt" parent="." instance=ExtResource( 4 )]
+margin_left = 457.256
+margin_top = 335.394
+margin_right = 803.256
+margin_bottom = 392.394
+text = "Continua..."
+
+[node name="victory" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -36,7 +36,10 @@ func acao_alavanca():
 
 #Passando de Fase
 func _on_portal_body_entered(body):
-	mudaCena(scenes[3])"
+	mudaCena(scenes[5])
+
+func _on_audio_jungle_finished():
+	$player/audio_jungle.play()"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 303.78, 42.4817 )
@@ -114,7 +117,6 @@ position = Vector2( 2653.19, 438.622 )
 position = Vector2( 1778.14, 484.962 )
 
 [node name="player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
 light_mask = 3
 position = Vector2( 297.968, 350.205 )
 
@@ -215,6 +217,7 @@ shape = SubResource( 2 )
 [node name="HUD" parent="." instance=ExtResource( 14 )]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_exited" from="alavanca" to="alavanca" method="_on_alavanca_body_exited"]
+[connection signal="finished" from="player/audio_jungle" to="." method="_on_audio_jungle_finished"]
 [connection signal="body_entered" from="agua" to="." method="_on_agua_body_entered"]
 [connection signal="body_entered" from="agua2" to="." method="_on_agua_body_entered"]
 [connection signal="body_entered" from="agua3" to="." method="_on_agua_body_entered"]

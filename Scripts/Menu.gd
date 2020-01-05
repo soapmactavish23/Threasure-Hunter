@@ -7,35 +7,44 @@ func _ready():
 
 #Jogar
 func _on_btnjogar_pressed():
-	$click.play()
-	yield($click, "finished")
+	$player_plane/click.play()
+	yield($player_plane/click, "finished")
 	mudaCena(scenes[1])
 
 #Sair do Jogo
 func _on_btnSair_pressed():
-	$click.play()
-	yield($click, "finished")
+	$player_plane/click.play()
+	yield($player_plane/click, "finished")
 	sair()
 
 #Ligando e Desligando o Som
 func _on_btnSound_pressed():
-	$click.play()
+	$player_plane/click.play()
 	if som_ligado:
-		$player_plane/AudioStreamPlayer2D.stop()
-		$btnSound/anim.play("off")
 		som_ligado = false
+		$player_plane/som_aviao.stop()
+		$Hud/btnSound/anim.play("off")
 	else:
-		$player_plane/AudioStreamPlayer2D.play()
-		$btnSound/anim.play("on")
 		som_ligado = true
+		$player_plane/som_aviao.play()
+		$Hud/btnSound/anim.play("on")
+		
 
 func _on_btnMusic_pressed():
-	$click.play()
+	$player_plane/click.play()
 	if som_ligado:
-		$audio.stop()
-		$btnMusic/anim.play("off")
+		$player_plane/audio.stop()
+		$Hud/btnMusic/anim.play("off")
 		som_ligado = false
 	else:
-		$audio.play()
-		$btnMusic/anim.play("on")
+		$player_plane/audio.play()
+		$Hud/btnMusic/anim.play("on")
 		som_ligado = true
+
+#Quando a música acabar
+func _on_audio_finished():
+	$player_plane/audio.play()
+
+
+func _on_som_aviao_finished():
+	$player_plane/som_aviao.play()
