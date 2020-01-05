@@ -18,6 +18,5 @@ func _process(delta):
 func mudaCena(cenas):
 	get_tree().change_scene(cenas)
 
-
 func sair():
 	get_tree().quit()

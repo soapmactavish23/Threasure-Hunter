@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Background/Templo.PNG" type="Texture" id=1]
+
+[node name="bg_templo" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1024, 600 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 514.624, 301.4 )
+scale = Vector2( 1.97189, 2.07748 )
+texture = ExtResource( 1 )

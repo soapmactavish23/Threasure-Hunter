@@ -54,3 +54,10 @@ func game_over():
 	$anim.play("dead")
 	yield($anim, "animation_finished")
 	get_tree().reload_current_scene()
+	
+func parar_musica():
+	$audio_jungle.stop()
+
+func tocar_musica():
+	$audio_jungle.play()
+

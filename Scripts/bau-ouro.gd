@@ -13,9 +13,16 @@ func _process(delta):
 		get_tree().call_group("scenes", "acao_bau")
 		for i in range(10):
 			recompensar()
-		
+		for i in range(3):
+			recompensar_frutas()
 func recompensar():
 	var m = moeda.instance()
 	get_parent().add_child(m)
 	m.position.x = position.x
 	m.position.y = position.y
+	
+func recompensar_frutas():
+	var f = frutas.instance()
+	get_parent().add_child(f)
+	f.position.x = position.x
+	f.position.y = position.y
