@@ -18,7 +18,6 @@ func acao_alavanca():
 
 #Passando de Fase
 func _on_portal_body_entered(body):
-	#get_tree().change_scene("res://Scenes/Carregando.tscn")
 	mudaCena(scenes[5])
 	
 func _on_audio_jungle_finished():

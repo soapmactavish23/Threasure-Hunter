@@ -4,6 +4,7 @@ var colidiu_alavanca = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("action") and colidiu_alavanca:
+		$audio.play()
 		$anim.play("default")
 		acionar()
 		

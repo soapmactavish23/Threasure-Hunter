@@ -23,7 +23,7 @@ func recompensar():
 	get_parent().add_child(m)
 	m.position.x = position.x
 	m.position.y = position.y
-	$audio.stop()
+	#$audio.stop()
 	
 func recompensar_frutas():
 	var f = frutas.instance()
@@ -42,6 +42,3 @@ func dar_chave():
 
 func tirar_chave():
 	tem_chave = false
-
-func _on_audio_finished():
-	$audio.queue_free()

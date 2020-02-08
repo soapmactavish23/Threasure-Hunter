@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/alavanca.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tileset/Templo/Itens/alavanca-1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Tileset/Templo/Itens/alavanca-2.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/efeitos sonoros/Som da Alavanca.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,5 +24,8 @@ frames = SubResource( 1 )
 [node name="poly" type="CollisionPolygon2D" parent="."]
 build_mode = 1
 polygon = PoolVector2Array( -27.5412, 26.8931, 31.39, 26.8931, 18.2942, 11.3418, 0.287445, 6.43082, -21.8118, -28.7642, -29.9967, -22.2163, -16.0824, 3.97534 )
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_alavanca_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_alavanca_body_exited"]
