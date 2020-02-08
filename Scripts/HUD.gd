@@ -116,6 +116,7 @@ func add_vidas():
 func del_vidas():
 	vidas -= 1
 	update_hud(1)
+	get_tree().call_group("player", "hurt")
 
 #Adicionar moedas
 func add_moedas():

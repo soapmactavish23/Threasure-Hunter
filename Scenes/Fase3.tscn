@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Fase 3.gd" type="Script" id=1]
 [ext_resource path="res://probs/bg_templo.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://probs/player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://probs/Itens/placa_info.tscn" type="PackedScene" id=13]
 [ext_resource path="res://probs/fade.tscn" type="PackedScene" id=14]
+[ext_resource path="res://probs/som_caverna.tscn" type="PackedScene" id=15]
 
 [node name="Fase3" type="Node2D"]
 editor/display_folded = true
@@ -342,4 +343,6 @@ position = Vector2( 1727.31, 513.072 )
 msg = 3
 
 [node name="fade" parent="." instance=ExtResource( 14 )]
+
+[node name="som_caverna" parent="." instance=ExtResource( 15 )]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]

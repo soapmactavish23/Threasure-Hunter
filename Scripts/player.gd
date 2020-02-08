@@ -18,9 +18,6 @@ func _physics_process(delta):
 	#acionar gravidade
 	motion.y += GRAVITY
 	
-	#if ($Touch/btn_jump.pressed):
-	#	jump = true
-	
 	#variáveis de Input
 	left = Input.is_action_pressed("ui_left")
 	right = Input. is_action_pressed("ui_right")
@@ -68,6 +65,9 @@ func game_over():
 func _on_audio_finished():
 	get_tree().call_group("scenes", "tocar_loop")
 	
+func hurt():
+	$dead.play()
+
 #Quando Não precionou o jump
 #func _on_btn_jump_button_up():
 #	jump = false

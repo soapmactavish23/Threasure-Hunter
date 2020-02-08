@@ -34,7 +34,6 @@ editor/display_folded = true
 [node name="fade" parent="Hud" instance=ExtResource( 8 )]
 
 [node name="player_plane" parent="." instance=ExtResource( 9 )]
-editor/display_folded = true
 
 [node name="som_aviao" parent="player_plane" instance=ExtResource( 10 )]
 position = Vector2( 0, 0 )
@@ -47,6 +46,7 @@ scale = Vector2( 2.23619, 2.08333 )
 [node name="audio" parent="player_plane" instance=ExtResource( 12 )]
 position = Vector2( -354.809, -473.219 )
 scale = Vector2( 2.23619, 2.08333 )
+autoplay = true
 [connection signal="pressed" from="Hud/btnjogar" to="." method="_on_btnjogar_pressed"]
 [connection signal="pressed" from="Hud/btnSair" to="." method="_on_btnSair_pressed"]
 [connection signal="pressed" from="Hud/btnSound" to="." method="_on_btnSound_pressed"]

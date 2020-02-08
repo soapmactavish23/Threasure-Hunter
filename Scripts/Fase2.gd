@@ -25,3 +25,9 @@ func acao_alavanca():
 
 func _on_portal_body_entered(body):
 	mudaCena(scenes[9])
+
+func parar_som():
+	$som_caverna.stop()
+
+func tocar_som():
+	$som_caverna.play()
