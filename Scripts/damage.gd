@@ -23,3 +23,6 @@ func _on_thornyplantdown_body_entered(body):
 
 func _on_thornyplantup_body_entered(body):
 	causar_dano()
+
+func _on_lowthorns_body_exited(body):
+	pass # Replace with function body.

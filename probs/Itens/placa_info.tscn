@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/placa_info.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tileset/Templo/Itens/placa-quadrada.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Placa/setas.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Placa/Barra de Espaço.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Placa/Tecla E.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tileset/Templo/Door/caverna.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28.1599, 23.5948 )
@@ -32,6 +36,26 @@ margin_top = -132.0
 margin_right = 77.9999
 margin_bottom = -31.0
 color = Color( 0.603922, 0.603922, 0.603922, 0.611765 )
+
+[node name="setas" type="Sprite" parent="ColorRect"]
+position = Vector2( 79.4564, 72.1741 )
+scale = Vector2( 0.17813, 0.15559 )
+texture = ExtResource( 3 )
+
+[node name="barra" type="Sprite" parent="ColorRect"]
+position = Vector2( 96.73, -11.4911 )
+scale = Vector2( 0.684923, 0.71166 )
+texture = ExtResource( 4 )
+
+[node name="e" type="Sprite" parent="ColorRect"]
+position = Vector2( 79.7793, 64.8178 )
+scale = Vector2( 0.258582, 0.276877 )
+texture = ExtResource( 5 )
+
+[node name="caverna" type="Sprite" parent="ColorRect"]
+position = Vector2( 116.411, 73.0532 )
+scale = Vector2( 0.508212, 0.532802 )
+texture = ExtResource( 6 )
 
 [node name="txtInfo" type="Label" parent="ColorRect"]
 margin_top = -2.0

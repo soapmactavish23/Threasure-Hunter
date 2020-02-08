@@ -34,7 +34,7 @@ editor/display_folded = true
 [node name="fade" parent="Hud" instance=ExtResource( 8 )]
 
 [node name="player_plane" parent="." instance=ExtResource( 9 )]
-position = Vector2( 158.667, 227.145 )
+editor/display_folded = true
 
 [node name="som_aviao" parent="player_plane" instance=ExtResource( 10 )]
 position = Vector2( 0, 0 )

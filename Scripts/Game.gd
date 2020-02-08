@@ -7,7 +7,11 @@ var scenes = [
 	"res://Scenes/tutorial.tscn",
 	"res://Scenes/Fase1.tscn",
 	"res://Scenes/Fase2.tscn",
-	"res://Scenes/Carregando.tscn"
+	"res://Scenes/Carregando.tscn",
+	"res://Scenes/Carregando2.tscn",
+	"res://Scenes/Fase3.tscn",
+	"res://Scenes/Ending.tscn",
+	"res://Scenes/Carregando3.tscn",
 	]
 
 func _ready():
@@ -22,3 +26,4 @@ func mudaCena(cenas):
 
 func sair():
 	get_tree().quit()
+

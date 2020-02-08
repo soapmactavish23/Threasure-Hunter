@@ -24,3 +24,6 @@ func _on_itenscoletaveismoedas_body_entered(body):
 
 func _on_queue_timer_timeout():
 	queue_free()
+
+
+

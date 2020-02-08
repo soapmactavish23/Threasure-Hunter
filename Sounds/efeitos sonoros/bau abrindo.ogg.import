@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bau abrindo.ogg-2e3b8181d3a66b0ea3966c1df34f1eac.oggstr"
+
+[deps]
+
+source_file="res://Sounds/efeitos sonoros/bau abrindo.ogg"
+dest_files=[ "res://.import/bau abrindo.ogg-2e3b8181d3a66b0ea3966c1df34f1eac.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

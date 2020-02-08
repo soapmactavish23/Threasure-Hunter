@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/UI/Buttons/jump-up.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/Buttons/jump-down.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Buttons/left-button-up.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Buttons/left-button-down.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Buttons/right-button-up.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Buttons/right-button-down.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[node name="Touch" type="CanvasLayer"]
+
+[node name="btn_jump" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 855.0
+margin_top = 467.0
+margin_right = 951.0
+margin_bottom = 556.0
+flat = true
+
+[node name="jump" type="AnimatedSprite" parent="btn_jump"]
+position = Vector2( 45.505, 43.573 )
+scale = Vector2( 0.438066, 0.38952 )
+frames = SubResource( 1 )
+animation = "up"
+
+[node name="btn_left" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 83.0
+margin_top = 466.0
+margin_right = 183.0
+margin_bottom = 568.0
+flat = true
+
+[node name="left" type="AnimatedSprite" parent="btn_left"]
+position = Vector2( 51.307, 49 )
+scale = Vector2( 0.448516, 0.439231 )
+frames = SubResource( 2 )
+animation = "up"
+
+[node name="btn_right" type="Button" parent="."]
+editor/display_folded = true
+margin_left = 196.0
+margin_top = 469.0
+margin_right = 296.0
+margin_bottom = 571.0
+flat = true
+
+[node name="right" type="AnimatedSprite" parent="btn_right"]
+position = Vector2( 50.596, 47.073 )
+scale = Vector2( 0.458599, 0.447341 )
+frames = SubResource( 3 )
+animation = "up"

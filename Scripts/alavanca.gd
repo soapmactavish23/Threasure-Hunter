@@ -8,7 +8,7 @@ func _process(delta):
 		acionar()
 		
 func acionar():
-	get_tree().call_group("scenes","acao_alavanca")
+	get_tree().call_group("scenes" , "acao_alavanca")
 
 func _on_alavanca_body_entered(body):
 	colidiu_alavanca = true

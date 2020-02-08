@@ -2,7 +2,7 @@ extends CanvasLayer
 
 #Variáveis
 var moedas 
-var vidas 
+var vidas
 var chaves 
 var baus 
 var musica_ligada = true
@@ -20,6 +20,7 @@ func _ready():
 func _process(delta):
 	if vidas <= 0:
 		vidas = 0
+		update_hud(1)
 		get_tree().call_group("player","game_over")
 	
 	if chaves <= 0:
@@ -61,22 +62,22 @@ func _on_btnMenu_pressed():
 func _on_btnSound_pressed():
 	if musica_ligada == true:
 		musica_ligada = false
-		get_tree().call_group("player", "parar_som")
+		get_tree().call_group("scenes", "parar_som")
 		$ColorRect/btnSound/anim.play("off")
 	else:
 		musica_ligada = true
-		get_tree().call_group("player", "tocar_som")
+		get_tree().call_group("scenes", "tocar_som")
 		$ColorRect/btnSound/anim.play("on")
 
 #Quando Precionar o botão de música
 func _on_btnMusic_pressed():
 	if som_ligado == true:
 		som_ligado = false
-		get_tree().call_group("player", "parar_musica")
+		get_tree().call_group("scenes", "parar_musica")
 		$ColorRect/btnMusic/anim.play("off")
 	else:
 		som_ligado = true
-		get_tree().call_group("player", "tocar_musica")
+		get_tree().call_group("scenes", "tocar_musica")
 		$ColorRect/btnMusic/anim.play("on")
 
 #Quando pressionar o Botão de Jogar

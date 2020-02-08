@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Sprites Kinematic/Idle/Idle__000.png" type="Texture" id=2]
@@ -11,44 +11,46 @@
 [ext_resource path="res://Sprites/Player/Sprites Kinematic/Idle/Idle__007.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Player/Sprites Kinematic/Idle/Idle__008.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Player/Sprites Kinematic/Idle/Idle__009.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__000.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__001.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__002.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__003.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__004.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__005.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__006.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__007.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__008.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__009.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__000.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__001.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__002.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__003.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__004.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__005.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__006.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__007.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__008.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__009.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__000.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__001.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__002.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__003.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__004.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__005.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__006.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__007.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__008.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__009.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__000.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__001.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__002.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__003.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__004.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__005.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__006.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__007.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__008.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Jump/Jump__009.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__000.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__001.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__002.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__003.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__004.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__005.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__006.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__007.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__008.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Walk/Run__009.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__000.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__001.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__002.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__003.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__004.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__005.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__006.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__007.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__008.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Player/Sprites Kinematic/Dead/Dead__009.png" type="Texture" id=41]
 [ext_resource path="res://Sounds/ativos de vozes/pulo.wav" type="AudioStream" id=42]
 [ext_resource path="res://probs/audio.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Sprites/UI/Buttons/jump-up.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/UI/Buttons/jump-down.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/UI/Buttons/left-button-up.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/UI/Buttons/left-button-down.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/UI/Buttons/right-button-up.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/UI/Buttons/right-button-down.png" type="Texture" id=49]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 71.2642
-height = 78.7116
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
@@ -57,18 +59,61 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "dead",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": false,
 "name": "jump",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "walk",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": false,
+"name": "dead",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 71.2642
+height = 91.6109
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 44 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 46 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 49 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -78,15 +123,15 @@ collision_layer = 15
 collision_mask = 15
 script = ExtResource( 1 )
 
-[node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2( 8.54986, 145.675 )
-shape = SubResource( 1 )
-
 [node name="anim" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 6
+frame = 3
 playing = true
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2( 8.54986, 120.461 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -98,4 +143,56 @@ limit_bottom = 600
 stream = ExtResource( 42 )
 
 [node name="audio" parent="." instance=ExtResource( 43 )]
+
+[node name="Touch" type="CanvasLayer" parent="."]
+
+[node name="btn_jump" type="Button" parent="Touch"]
+editor/display_folded = true
+visible = false
+margin_left = 855.0
+margin_top = 467.0
+margin_right = 951.0
+margin_bottom = 556.0
+flat = true
+
+[node name="jump" type="AnimatedSprite" parent="Touch/btn_jump"]
+position = Vector2( 45.505, 43.573 )
+scale = Vector2( 0.438066, 0.38952 )
+frames = SubResource( 3 )
+animation = "up"
+
+[node name="btn_left" type="Button" parent="Touch"]
+editor/display_folded = true
+visible = false
+margin_left = 83.0
+margin_top = 466.0
+margin_right = 183.0
+margin_bottom = 568.0
+flat = true
+
+[node name="left" type="AnimatedSprite" parent="Touch/btn_left"]
+position = Vector2( 51.307, 49 )
+scale = Vector2( 0.448516, 0.439231 )
+frames = SubResource( 4 )
+animation = "up"
+
+[node name="btn_right" type="Button" parent="Touch"]
+editor/display_folded = true
+visible = false
+margin_left = 196.0
+margin_top = 469.0
+margin_right = 296.0
+margin_bottom = 571.0
+flat = true
+
+[node name="right" type="AnimatedSprite" parent="Touch/btn_right"]
+position = Vector2( 50.596, 47.073 )
+scale = Vector2( 0.458599, 0.447341 )
+frames = SubResource( 5 )
+animation = "up"
 [connection signal="finished" from="audio" to="." method="_on_audio_finished"]
+[connection signal="button_up" from="Touch/btn_jump" to="." method="_on_btn_jump_button_up"]
+[connection signal="button_down" from="Touch/btn_left" to="." method="_on_btn_left_button_down"]
+[connection signal="button_up" from="Touch/btn_left" to="." method="_on_btn_left_button_up"]
+[connection signal="button_down" from="Touch/btn_right" to="." method="_on_btn_right_button_down"]
+[connection signal="button_up" from="Touch/btn_right" to="." method="_on_btn_right_button_up"]

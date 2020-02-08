@@ -15,3 +15,4 @@ polygon = PoolVector2Array( -30.197, -18.3792, -24.1298, 12.7151, 19.8574, 14.23
 position = Vector2( -2.1362, -3.96962 )
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_lowthorns_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_lowthorns_body_exited"]
