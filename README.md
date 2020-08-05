@@ -3,7 +3,8 @@
 ## Descrição
 Treasure Hunter é um jogo de puzzle e aventura, cujo objetivo do game é o protagonista(John) é encontrar o tesouro perdido no cenário e escapando das armadilhas que lhe forem apresentadas.
 
-## Video Demonstrativo
+## Video Demonstrativo:
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/w1Cnst_N-F0)
 
 ## Plataforma Adotada: 
   - PC
