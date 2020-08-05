@@ -1,4 +1,4 @@
-# Threasure-Hunter
+# Threasure Hunter
 
 ## Descrição
 Treasure Hunter é um jogo de puzzle e aventura, cujo objetivo do game é o protagonista(John) é encontrar o tesouro perdido no cenário e escapando das armadilhas que lhe forem apresentadas.
