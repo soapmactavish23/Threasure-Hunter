@@ -13,8 +13,7 @@ Treasure Hunter é um jogo de puzzle e aventura, cujo objetivo do game é o prot
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" height="20" width="20"/> [Flutter](https://flutter.dev/?gclid=Cj0KCQjwkbuKBhDRARIsAALysV4sMSKWcOxrlBmdtlCcf3MAfNdH1ehbbWi6ZjjjdypPLsSvdTFiqOYaAon3EALw_wcB&gclsrc=aw.ds)
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" height="20" width="20"/> [Dart](https://dart.dev/)
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" heigth="20" width="20"/> [Godot](https://godotengine.org/)
 
 ## 📷 Video Demonstrativo
 
@@ -26,20 +25,20 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
   - PC
 
-## Ambientação: 
+## 🎮 Ambientação: 
   - 2D
 
-## Gênero:
+## 🎲 Gênero:
   1. Aventura
   2. Quebra-Cabeça
   
-## Sensação:
+## 🚸 Sensação:
   - Side Scroll
   
-## Público Alvo:
+## 😛 Público Alvo:
   - 14 a 16 anos
   
-## Número de Níveis:
+## 🔢 Número de Níveis:
   1. Tutorial
   2. Fase 1
   3. Fase 2
